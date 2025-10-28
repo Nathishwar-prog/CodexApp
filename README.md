@@ -111,19 +111,6 @@ After checking the [prerequisites](#prerequisites) above, follow these steps to 
 
    > Note: Git hooks will be automatically installed via Husky when running `pnpm install`
 
-3. **Environment setup**
-
-    Create `apps/client/.env` using the template from `apps/client/.env.example`:
-
-    ```bash
-    BETTERSTACK_API_KEY=
-    SENTRY_AUTH_TOKEN=
-    GITHUB_CLIENT_SECRET_PROD=
-    GITHUB_CLIENT_SECRET_DEV=
-    SENTRY_SUPPRESS_TURBOPACK_WARNING="1"
-    TURBO_TEAM=
-    TURBO_TOKEN=
-    ```
 
     > Note: This is a personal project and the required API keys and secrets are not publicly shared. For local development, you'll need to set up your own credentials for GitHub OAuth, Sentry, etc.
 
