@@ -17,6 +17,18 @@ import type { BetterStackResponse } from '@/components/status/types';
 
 export async function GET() {
   try {
+    // Graceful fallback for local/dev environments without a BetterStack API key
+    if (!process.env.BETTERSTACK_API_KEY) {
+      // Return a minimal, valid shape to keep the UI happy
+      return NextResponse.json({
+        data: {
+          attributes: {
+            status: 'up',
+          },
+        },
+      });
+    }
+
     const response = await fetch(
       `https://uptime.betterstack.com/api/v2/monitors/${KASCA_SERVER_MONITOR_ID}`,
       {

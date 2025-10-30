@@ -8,8 +8,8 @@
  * By Dulapah Vibulsanti (https://dulapahv.dev)
  */
 
-const LOCAL_SERVER = 'http://localhost:3001';
-const REMOTE_SERVER = 'https://codex-server.dulapahv.dev';
+const LOCAL_SERVER = process.env.SERVER_LOCAL_URL || 'http://localhost:3001';
+const REMOTE_SERVER = process.env.SERVER_REMOTE_URL || 'http://localhost:3001';
 
 const serverArg = process.argv.find((arg) => arg.startsWith('--server='));
 if (!serverArg) {

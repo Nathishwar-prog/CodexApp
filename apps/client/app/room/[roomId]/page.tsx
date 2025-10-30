@@ -152,10 +152,12 @@ const MemoizedWebcamStream = memo(function MemoizedWebcamStream({
 
 const MemoizedLivePreview = memo(function MemoizedLivePreview({
   value,
+  language,
 }: {
   value: string;
+  language: string;
 }) {
-  return <LivePreview value={value} />;
+  return <LivePreview value={value} language={language} />;
 });
 
 const MemoizedStatusBar = memo(function MemoizedStatusBar({
@@ -378,7 +380,10 @@ export default function Room() {
                     )}
                   >
                     {editor && (
-                      <MemoizedLivePreview value={code || defaultCode} />
+                      <MemoizedLivePreview
+                        value={code || defaultCode}
+                        language={editor.getModel()?.getLanguageId() || 'html'}
+                      />
                     )}
                   </ResizablePanel>
                 </ResizablePanelGroup>

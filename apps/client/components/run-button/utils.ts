@@ -12,6 +12,7 @@ import type { Dispatch, RefObject, SetStateAction } from 'react';
 
 import { Monaco } from '@monaco-editor/react';
 import type * as monaco from 'monaco-editor';
+import { toast } from 'sonner';
 
 import { CodeServiceMsg } from '@codex/types/message';
 import {
@@ -118,6 +119,26 @@ export const executeCode = async (
       .getLanguages()
       .find((lang) => lang.id === currentLanguageId);
 
+    // Handle non-executable preview languages locally (HTML/CSS/JS)
+    if (currentLanguageId === 'html' || currentLanguageId === 'css') {
+      const info = {
+        language: currentLanguageId,
+        version: 'browser',
+        run: {
+          stdout: '✅ Live Preview updated',
+          stderr: '',
+          code: 0,
+          signal: null,
+          output: 'Live Preview updated',
+        },
+        timestamp: new Date(),
+        type: ExecutionResultType.INFO,
+      } as const;
+      setOutput((currentOutput) => [...currentOutput, info]);
+      socket.emit(CodeServiceMsg.UPDATE_TERM, info);
+      return;
+    }
+
     const response = await fetch('/api/execute', {
       method: 'POST',
       headers: {
@@ -133,8 +154,14 @@ export const executeCode = async (
     });
 
     if (!response.ok) {
+      // Try to extract API error details
+      let details = '';
+      try {
+        const raw = await response.text();
+        details = raw;
+      } catch {}
       throw new Error(
-        `HTTP error! status: ${response.status}\nThis language may not be supported or the server is down.\nList of supported languages: https://github.com/dulapahv/CodeX/blob/main/manual.md#supported-execution-languages.`,
+        `HTTP error! status: ${response.status}\n${details || 'This language may not be supported or the server is down.'}\nList of supported languages: ${window.location.origin}/docs/supported-languages`,
       );
     }
 
@@ -155,6 +182,8 @@ export const executeCode = async (
     if (error instanceof DOMException && error.name === 'AbortError') {
       return;
     }
+
+    toast.error('Execution failed. See terminal for details.');
 
     const endTime = new Date();
     const executionTime = endTime.getTime() - startTime.getTime();

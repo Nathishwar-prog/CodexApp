@@ -22,6 +22,51 @@ interface RequestBody {
   stdin?: string;
 }
 
+// Map editor language IDs/aliases to Piston language keys
+const LANGUAGE_MAP: Record<string, string> = {
+  // Common mappings
+  js: 'javascript',
+  javascript: 'javascript',
+  node: 'javascript',
+  nodejs: 'javascript',
+  typescript: 'typescript',
+  ts: 'typescript',
+  py: 'python',
+  python: 'python',
+  python3: 'python',
+  csharp: 'csharp',
+  'c#': 'csharp',
+  cpp: 'cpp',
+  c: 'c',
+  java: 'java',
+  go: 'go',
+  golang: 'go',
+  rust: 'rust',
+  php: 'php',
+  ruby: 'ruby',
+  swift: 'swift',
+  kotlin: 'kotlin',
+  r: 'r',
+  bash: 'bash',
+  sh: 'bash',
+  shell: 'bash',
+  powershell: 'powershell',
+  ps1: 'powershell',
+  lua: 'lua',
+  julia: 'julia',
+  zig: 'zig',
+  haskell: 'haskell',
+  ocaml: 'ocaml',
+  nim: 'nim',
+  elixir: 'elixir',
+  erlang: 'erlang',
+};
+
+const normalizeLanguage = (lang: string): string => {
+  const key = lang.trim().toLowerCase();
+  return LANGUAGE_MAP[key] || key;
+};
+
 export async function POST(request: Request) {
   try {
     const body: RequestBody = await request.json();
@@ -49,7 +94,7 @@ export async function POST(request: Request) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        language: body.language.toLowerCase(),
+        language: normalizeLanguage(body.language),
         version: '*',
         files: [{ content: body.code }],
         stdin: body.stdin || '',
@@ -61,7 +106,21 @@ export async function POST(request: Request) {
     });
 
     if (!response.ok) {
-      throw new Error(`API error: ${response.status}`);
+      let details: unknown = undefined;
+      try {
+        // Piston may return JSON body with error info; fall back to text
+        const raw = await response.text();
+        try {
+          details = JSON.parse(raw);
+        } catch {
+          details = raw;
+        }
+      } catch {}
+
+      return NextResponse.json(
+        { error: 'Piston API error', details },
+        { status: response.status },
+      );
     }
 
     const data = await response.json();

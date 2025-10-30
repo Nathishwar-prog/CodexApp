@@ -24,7 +24,7 @@ const REFRESH_INTERVAL = 15000; // 15 seconds
 const getServerStatus = (
   monitor: BetterStackResponse['data'],
 ): ServiceStatus => {
-  if (!monitor) {
+  if (!monitor || !('attributes' in monitor) || !monitor.attributes) {
     return {
       color: 'bg-muted-foreground',
       label: 'Unknown Server Status',

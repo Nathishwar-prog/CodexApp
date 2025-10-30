@@ -9,15 +9,13 @@
  */
 
 const ALLOWED_ORIGINS = [
-  'https://codex.dulapahv.dev',
-  'https://codex.vercel.app',
-  'https://dev-codex.dulapahv.dev',
+  process.env.CLIENT_URL || '',
+  process.env.CLIENT_URL_ALT || '',
   'http://localhost:3000',
-] as const;
+].filter(Boolean) as readonly string[];
 
 const isVercelDeployment = (origin: string): boolean => {
-  const VERCEL_PATTERN =
-    /^https:\/\/codex-client-[a-zA-Z0-9]+-[a-zA-Z0-9-]+\.vercel\.app$/;
+  const VERCEL_PATTERN = /^https:\/\/[a-zA-Z0-9-]+\.vercel\.app$/;
   return VERCEL_PATTERN.test(origin);
 };
 

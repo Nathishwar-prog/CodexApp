@@ -8,12 +8,9 @@
 
 <br />
 
-
-
 <br />
 
 **CodeX is an online code collaboration platform that enables real-time coding, cursor sharing, live UI preview, and video communication with integrated Git support—no sign-up required.**
-
 
 > This project is part of the course "COMPSCI4025P Level 4 Individual Project" at the University of Glasgow.
 
@@ -111,8 +108,7 @@ After checking the [prerequisites](#prerequisites) above, follow these steps to 
 
    > Note: Git hooks will be automatically installed via Husky when running `pnpm install`
 
-
-    > Note: This is a personal project and the required API keys and secrets are not publicly shared. For local development, you'll need to set up your own credentials for GitHub OAuth, Sentry, etc.
+   > Note: This is a personal project and the required API keys and secrets are not publicly shared. For local development, you'll need to set up your own credentials for GitHub OAuth, Sentry, etc.
 
 ## Development
 
@@ -311,36 +307,35 @@ Contributions are welcome! To contribute to this project, follow these steps:
 
    ```bash
    git checkout -b feat/your-feature-name
-    ```
+   ```
 
 2. Commit your changes following **[Conventional Commits](https://conventionalcommits.org/)**:
 
-    ```bash
-    git commit -m "<type>(<optional-scope>): <description>"
-    ```
+   ```bash
+   git commit -m "<type>(<optional-scope>): <description>"
+   ```
 
-    - `<type>`: Must be one of:
+   - `<type>`: Must be one of:
+     - `feat`: New features (e.g., "feat: add user authentication")
+     - `fix`: Bug fixes (e.g., "fix: resolve memory leak")
+     - `docs`: Documentation changes (e.g., "docs: update API guide")
+     - `style`: Code style changes (e.g., "style: fix indentation")
+     - `refactor`: Code refactoring (e.g., "refactor: simplify auth logic")
+     - `perf`: Performance improvements (e.g., "perf: optimize database queries")
+     - `test`: Adding/updating tests (e.g., "test: add unit tests for auth")
+     - `chore`: Routine tasks/maintenance (e.g., "chore: update dependencies")
+     - `ci`: CI/CD changes (e.g., "ci: add GitHub Actions workflow")
+     - `revert`: Revert previous changes (e.g., "revert: remove broken feature")
 
-      - `feat`: New features (e.g., "feat: add user authentication")
-      - `fix`: Bug fixes (e.g., "fix: resolve memory leak")
-      - `docs`: Documentation changes (e.g., "docs: update API guide")
-      - `style`: Code style changes (e.g., "style: fix indentation")
-      - `refactor`: Code refactoring (e.g., "refactor: simplify auth logic")
-      - `perf`: Performance improvements (e.g., "perf: optimize database queries")
-      - `test`: Adding/updating tests (e.g., "test: add unit tests for auth")
-      - `chore`: Routine tasks/maintenance (e.g., "chore: update dependencies")
-      - `ci`: CI/CD changes (e.g., "ci: add GitHub Actions workflow")
-      - `revert`: Revert previous changes (e.g., "revert: remove broken feature")
+   <br />
 
-    <br />
-
-    > For a complete commit message guidelines, see **[Conventional Commits](https://conventionalcommits.org/)**.
+   > For a complete commit message guidelines, see **[Conventional Commits](https://conventionalcommits.org/)**.
 
 3. Push your changes and submit a Pull Request with a description of your changes:
 
-    ```bash
-    git push origin feat/your-feature-name
-    ```
+   ```bash
+   git push origin feat/your-feature-name
+   ```
 
 ## User Manual
 

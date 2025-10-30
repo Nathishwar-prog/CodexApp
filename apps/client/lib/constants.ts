@@ -14,24 +14,28 @@ export const IS_DEV_ENV =
   process.env.NEXT_PUBLIC_ENV === 'development' ||
   process.env.NODE_ENV === 'development';
 
-export const BASE_CLIENT_URL = IS_DEV_ENV
-  ? 'http://localhost:3000'
-  : 'https://codex.dulapahv.dev';
-export const BASE_SERVER_URL = IS_DEV_ENV
-  ? 'http://localhost:3001'
-  : 'https://codex-server.dulapahv.dev';
+export const BASE_CLIENT_URL =
+  process.env.NEXT_PUBLIC_BASE_CLIENT_URL ||
+  (IS_DEV_ENV ? 'http://localhost:3000' : 'https://example.com');
+export const BASE_SERVER_URL =
+  process.env.NEXT_PUBLIC_BASE_SERVER_URL ||
+  (IS_DEV_ENV ? 'http://localhost:3001' : 'https://api.example.com');
 
-export const STATUS_URL = 'https://codex-status.dulapahv.dev';
-export const KASCA_SERVER_MONITOR_ID = '2887417';
+export const STATUS_URL =
+  process.env.NEXT_PUBLIC_STATUS_URL || 'https://status.example.com';
+export const KASCA_SERVER_MONITOR_ID =
+  process.env.NEXT_PUBLIC_BETTERSTACK_MONITOR_ID || '';
 
 export const GITHUB_API_URL = 'https://api.github.com';
 export const GITHUB_OAUTH_URL = 'https://github.com/login/oauth';
-export const GITHUB_CLIENT_ID = IS_DEV_ENV
-  ? 'Ov23liuy4d9jGnpy9t6j'
-  : 'Ov23liIuxEK1vcaIKIxP';
+export const GITHUB_CLIENT_ID = process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID || '';
 export const GITHUB_CLIENT_SECRET = IS_DEV_ENV
-  ? process.env.GITHUB_CLIENT_SECRET_DEV
-  : process.env.GITHUB_CLIENT_SECRET_PROD;
+  ? process.env.GITHUB_CLIENT_SECRET ||
+    process.env.GITHUB_CLIENT_SECRET_DEV ||
+    ''
+  : process.env.GITHUB_CLIENT_SECRET ||
+    process.env.GITHUB_CLIENT_SECRET_PROD ||
+    '';
 
 export const NAME_MAX_LENGTH = 64;
 
@@ -46,11 +50,17 @@ export const LATENCY_TEST_DESCRIPTION =
 export const GITHUB_OAUTH_TITLE = 'GitHub OAuth Callback';
 export const GITHUB_OAUTH_DESCRIPTION =
   'This page is used to handle the GitHub OAuth callback.';
-export const NAME = 'Dulapah Vibulsanti';
-export const PORTFOLIO_URL = 'https://dulapahv.dev';
-export const CONTACT_URL = 'https://dulapahv.dev/contact';
-export const REPO_URL = 'https://github.com/dulapahv/codex';
-export const GITHUB_URL = 'https://github.com/dulapahv';
+export const NAME = process.env.NEXT_PUBLIC_OWNER_NAME || 'Nathishwar';
+export const PORTFOLIO_URL =
+  process.env.NEXT_PUBLIC_OWNER_URL || 'https://github.com/Nathishwar-prog';
+export const CONTACT_URL =
+  process.env.NEXT_PUBLIC_OWNER_CONTACT_URL ||
+  'https://github.com/Nathishwar-prog';
+export const REPO_URL =
+  process.env.NEXT_PUBLIC_REPO_URL ||
+  'https://github.com/Nathishwar-prog/CodeX';
+export const GITHUB_URL =
+  process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/Nathishwar-prog';
 
 export const EDITOR_SETTINGS_KEY = 'editor-settings';
 
