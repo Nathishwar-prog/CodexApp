@@ -4,5 +4,9 @@
     "deploymentEnabled": {
       "main": false
     }
+  },
+  "buildCommand": "pnpm install --no-frozen-lockfile && pnpm build",
+  "env": {
+    "ENABLE_EXPERIMENTAL_COREPACK": "1"
   }
 }

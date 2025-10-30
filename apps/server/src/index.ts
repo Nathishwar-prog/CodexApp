@@ -43,6 +43,7 @@ const PORT = 3001;
 const app = App();
 
 const io = new Server({
+  maxHttpBufferSize: 1e8, // Increase buffer size to 100MB
   cors: {
     origin: (origin, callback) => {
       if (process.env.NODE_ENV === 'development') {
