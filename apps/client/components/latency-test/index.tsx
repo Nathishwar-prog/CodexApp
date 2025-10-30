@@ -17,7 +17,7 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { Socket } from 'socket.io-client';
 
-import { BASE_CLIENT_URL, BASE_SERVER_URL } from '@/lib/constants';
+import { BASE_SERVER_URL } from '@/lib/constants';
 import { getSocket } from '@/lib/socket';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -147,7 +147,7 @@ const LatencyTest = () => {
   return (
     <Card className="mx-auto w-full max-w-3xl">
       <Button variant="link" className="text-foreground mt-4 px-6" asChild>
-        <Link href={BASE_CLIENT_URL}>
+        <Link href="/">
           <ArrowLeft className="mr-2 size-4" />
           Go back
         </Link>

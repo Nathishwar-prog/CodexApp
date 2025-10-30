@@ -10,12 +10,11 @@
 
 'use client';
 
-import type { Route } from 'next';
 import Link from 'next/link';
 
 import { Bug, Home, RefreshCcw } from 'lucide-react';
 
-import { BASE_CLIENT_URL, CONTACT_URL, IS_DEV_ENV } from '@/lib/constants';
+import { CONTACT_URL, IS_DEV_ENV } from '@/lib/constants';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 
@@ -63,13 +62,17 @@ Stack: ${error.stack || 'No stack trace available'}`;
             Try Again
           </Button>
           <Button variant="outline" asChild className="gap-2">
-            <Link href={generateErrorReport() as Route} target="_blank">
+            <a
+              href={generateErrorReport()}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Bug className="size-4" />
               Report Issue
-            </Link>
+            </a>
           </Button>
           <Button variant="default" asChild className="gap-2">
-            <Link href={BASE_CLIENT_URL as Route}>
+            <Link href="/">
               <Home className="size-4" />
               Return Home
             </Link>
