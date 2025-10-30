@@ -45,12 +45,13 @@ export default async function Page({ searchParams }: PageProps<'/'>) {
       <div
         aria-hidden="true"
         role="presentation"
-        className="fixed inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent to-[#0c0c0c]/80"
+        className="fixed inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent
+          to-[#0c0c0c]/80"
       />
       <div className="dark fixed inset-0 -z-10">
         <AnimatedGridBackground />
       </div>
-      
+
       {/* Accent glow effects */}
       <div
         aria-hidden="true"
@@ -60,9 +61,10 @@ export default async function Page({ searchParams }: PageProps<'/'>) {
       <div
         aria-hidden="true"
         role="presentation"
-        className="fixed -right-20 bottom-20 -z-10 h-72 w-72 rounded-full bg-blue-900/20 blur-[100px]"
+        className="fixed -right-20 bottom-20 -z-10 h-72 w-72 rounded-full bg-blue-900/20
+          blur-[100px]"
       />
-      
+
       <main
         className="dark relative flex min-h-full w-full flex-col overflow-hidden
           min-[1189px]:flex-row"
@@ -77,7 +79,10 @@ export default async function Page({ searchParams }: PageProps<'/'>) {
               {/* Logo and Tagline */}
               <div className="flex flex-col space-y-2">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-purple-600 to-blue-600 shadow-lg shadow-purple-900/20">
+                  <div
+                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br
+                      from-purple-600 to-blue-600 shadow-lg shadow-purple-900/20"
+                  >
                     <Image
                       src="/images/codex-logo.svg"
                       alt="CodeX Logo"
@@ -87,40 +92,57 @@ export default async function Page({ searchParams }: PageProps<'/'>) {
                       priority
                     />
                   </div>
-                  <h2 className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-xl font-bold text-transparent">
-                    LaughLogic Lab's
+                  <h2
+                    className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-xl font-bold
+                      text-transparent"
+                  >
+                    LaughLogic Lab&apos;s
                   </h2>
                 </div>
               </div>
-              
+
               {/* Main Headline */}
-              <h1
-                className="text-foreground text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
-              >
+              <h1 className="text-foreground text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
                 <span className="block text-white">Collaborative coding</span>
-                <span className="mt-1 block bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
+                <span
+                  className="mt-1 block bg-gradient-to-r from-purple-400 via-blue-500 to-indigo-600
+                    bg-clip-text text-transparent"
+                >
                   for modern teams
                 </span>
               </h1>
-              
+
               {/* Value Proposition */}
-              <p className="text-gray-400 max-w-xl text-lg sm:text-xl">
+              <p className="max-w-xl text-lg text-gray-400 sm:text-xl">
                 Don&apos;t just code alone - code together in real-time.
-                Seamless collaboration with powerful tools for pair programming and team productivity.
+                Seamless collaboration with powerful tools for pair programming
+                and team productivity.
               </p>
-              
+
               {/* Feature Pills */}
               <div className="flex flex-wrap gap-2">
-                <span className="inline-flex items-center rounded-full bg-purple-950/30 px-3 py-1 text-xs font-medium text-purple-300">
+                <span
+                  className="inline-flex items-center rounded-full bg-purple-950/30 px-3 py-1 text-xs
+                    font-medium text-purple-300"
+                >
                   Real-time collaboration
                 </span>
-                <span className="inline-flex items-center rounded-full bg-blue-950/30 px-3 py-1 text-xs font-medium text-blue-300">
+                <span
+                  className="inline-flex items-center rounded-full bg-blue-950/30 px-3 py-1 text-xs
+                    font-medium text-blue-300"
+                >
                   Code execution
                 </span>
-                <span className="inline-flex items-center rounded-full bg-indigo-950/30 px-3 py-1 text-xs font-medium text-indigo-300">
+                <span
+                  className="inline-flex items-center rounded-full bg-indigo-950/30 px-3 py-1 text-xs
+                    font-medium text-indigo-300"
+                >
                   GitHub integration
                 </span>
-                <span className="inline-flex items-center rounded-full bg-violet-950/30 px-3 py-1 text-xs font-medium text-violet-300">
+                <span
+                  className="inline-flex items-center rounded-full bg-violet-950/30 px-3 py-1 text-xs
+                    font-medium text-violet-300"
+                >
                   Live preview
                 </span>
               </div>
