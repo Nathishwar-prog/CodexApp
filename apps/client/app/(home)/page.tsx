@@ -96,7 +96,7 @@ export default async function Page({ searchParams }: PageProps<'/'>) {
                     className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-xl font-bold
                       text-transparent"
                   >
-                    LaughLogic Lab&apos;s
+                    LaughLogic Lab
                   </h2>
                 </div>
               </div>
@@ -114,9 +114,9 @@ export default async function Page({ searchParams }: PageProps<'/'>) {
 
               {/* Value Proposition */}
               <p className="max-w-xl text-lg text-gray-400 sm:text-xl">
-                Don&apos;t just code alone - code together in real-time.
-                Seamless collaboration with powerful tools for pair programming
-                and team productivity.
+                Dont just code alone - code together in real-time. Seamless
+                collaboration with powerful tools for pair programming and team
+                productivity.
               </p>
 
               {/* Feature Pills */}

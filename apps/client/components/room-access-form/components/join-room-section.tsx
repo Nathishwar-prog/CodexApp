@@ -112,7 +112,8 @@ export const JoinRoomSection = ({
         </div>
         <Button
           type="submit"
-          className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white text-sm sm:text-base shadow-lg transition-all duration-300"
+          className="bg-gradient-to-r from-purple-600 to-blue-600 text-sm text-white shadow-lg
+            transition-all duration-300 hover:from-purple-700 hover:to-blue-700 sm:text-base"
           disabled={isDisabled}
           aria-busy={isSubmitting}
         >

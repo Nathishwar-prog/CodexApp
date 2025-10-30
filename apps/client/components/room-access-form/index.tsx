@@ -112,7 +112,8 @@ const RoomAccessForm = ({ roomId }: RoomAccessFormProps) => {
 
   return (
     <Card
-      className="border border-zinc-800/50 bg-gradient-to-br from-zinc-900/90 to-black/90 backdrop-blur-sm shadow-xl rounded-xl overflow-hidden"
+      className="overflow-hidden rounded-xl border border-zinc-800/50 bg-gradient-to-br
+        from-zinc-900/90 to-black/90 shadow-xl backdrop-blur-sm"
       role="region"
       aria-label="Room access form"
     >

@@ -79,31 +79,38 @@ const showcaseImages: ShowcaseImage[] = [
 
 const ShowcaseCard = ({ image }: { image: ShowcaseImage }) => (
   <div
-    className="group relative min-h-[300px] w-full overflow-hidden rounded-xl border border-zinc-800/50
-      bg-gradient-to-br from-zinc-900/90 to-black/90 backdrop-blur-sm shadow-lg hover:shadow-xl
-      hover:border-purple-500/30 transition-all duration-300 ease-in-out"
+    className="group relative min-h-[300px] w-full overflow-hidden rounded-xl border
+      border-zinc-800/50 bg-gradient-to-br from-zinc-900/90 to-black/90 shadow-lg
+      backdrop-blur-sm transition-all duration-300 ease-in-out
+      hover:border-purple-500/30 hover:shadow-xl"
   >
     <div className="relative aspect-video w-full overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opacity-60"></div>
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 to-transparent opacity-60"></div>
       <Image
         src={image.src}
         alt={image.alt}
         fill
         priority
         sizes="(min-width: 1189px) 33vw, (min-width: 560px) 50vw, 100vw"
-        className="rounded-t-xl object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
+        className="rounded-t-xl object-cover transition-all duration-500 group-hover:scale-105
+          group-hover:brightness-110"
       />
     </div>
-    <div className="min-h-28 p-5 relative">
+    <div className="relative min-h-28 p-5">
       <div className="mb-3 flex items-center gap-3">
-        <span className="rounded-full bg-purple-500/20 p-2.5 text-purple-400 shadow-sm shadow-purple-500/20">
+        <span
+          className="rounded-full bg-purple-500/20 p-2.5 text-purple-400 shadow-sm
+            shadow-purple-500/20"
+        >
           {image.icon}
         </span>
-        <h1 className="text-white text-lg font-semibold tracking-tight">
+        <h1 className="text-lg font-semibold tracking-tight text-white">
           {image.title}
         </h1>
       </div>
-      <p className="text-zinc-400 text-sm leading-relaxed">{image.description}</p>
+      <p className="text-sm leading-relaxed text-zinc-400">
+        {image.description}
+      </p>
     </div>
   </div>
 );
@@ -111,14 +118,17 @@ const ShowcaseCard = ({ image }: { image: ShowcaseImage }) => (
 const ShowcaseGrid = () => (
   <div className="grid w-full auto-rows-max gap-8">
     <div className="mb-4 text-center">
-      <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent mb-3">
+      <h2
+        className="mb-3 bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-3xl
+          font-bold text-transparent"
+      >
         Powerful Features
       </h2>
-      <p className="text-zinc-400 max-w-2xl mx-auto">
+      <p className="mx-auto max-w-2xl text-zinc-400">
         Everything you need for seamless collaborative coding in one platform
       </p>
     </div>
-    
+
     {/* Mobile: Single column */}
     <div className="grid grid-cols-1 gap-8 px-4 min-[560px]:hidden">
       {showcaseImages.map((image) => (
