@@ -112,12 +112,12 @@ const RoomAccessForm = ({ roomId }: RoomAccessFormProps) => {
 
   return (
     <Card
-      className="border-none bg-black/20 backdrop-blur-sm"
+      className="border border-zinc-800/50 bg-gradient-to-br from-zinc-900/90 to-black/90 backdrop-blur-sm shadow-xl rounded-xl overflow-hidden"
       role="region"
       aria-label="Room access form"
     >
-      <CardContent className="px-4 py-4 sm:px-6 sm:py-6">
-        <div className="grid w-full items-center gap-4 sm:gap-6" role="group">
+      <CardContent className="px-6 py-6 sm:px-8 sm:py-8">
+        <div className="grid w-full items-center gap-6 sm:gap-8" role="group">
           {roomId ? (
             isRoomIdValid(roomId) ? (
               <>
